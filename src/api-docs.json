@@ -1,0 +1,1414 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Your one stop shop for all your document generation needs.",
+    "version": "0.1",
+    "title": "fpx-dhc-generating-service rest API",
+    "contact": {
+      "name": "Team X-Men, Lending Retail",
+      "email": "l.nl.itn.fin.particulieren.team.xmen@intern.rabobank.nl"
+    }
+  },
+  "host": "fpx-dhc-generating-service-a.apps-ota.kwx.rabobank.nl",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "accompanying-letter-v-1-controller",
+      "description": "Accompanying Letter V 1 Controller"
+    },
+    {
+      "name": "application-finance-private-v-1-controller",
+      "description": "Application Finance Private V 1 Controller"
+    },
+    {
+      "name": "interest-proposal-letter-for-applicant-v-1-controller",
+      "description": "Interest Proposal Letter For Applicant V 1 Controller"
+    },
+    {
+      "name": "interest-proposal-letter-for-intermediary-v-1-controller",
+      "description": "Interest Proposal Letter For Intermediary V 1 Controller"
+    },
+    {
+      "name": "mortgage-declaration-v-2-controller",
+      "description": "Mortgage Declaration V 2 Controller"
+    },
+    {
+      "name": "privacy-statement-email-endpoint-controller",
+      "description": "Privacy Statement Email Endpoint Controller"
+    }
+  ],
+  "paths": {
+    "/generate/document/accompanying-letter/v1": {
+      "post": {
+        "tags": [ "accompanying-letter-v-1-controller" ],
+        "summary": "Generates an accompanying letter using the provided document input data. The document is returned immediately.",
+        "operationId": "generateUsingPOST",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/accompanyingletter.v1.dto.AccompanyingLetterDto" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "the generated letter" },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/generate/document/application-finance-private/v1": {
+      "post": {
+        "tags": [ "application-finance-private-v-1-controller" ],
+        "summary": "Generates the AFP v2 document using the provided document input data. The document is returned immediately.",
+        "operationId": "generateV2UsingPOST",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/dto.GenerateDocumentRequest«afp.v1.ApplicationFinancingPrivate»" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "the generated declaration" },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/generate/document/interest-proposal-letter-for-applicant/v1": {
+      "post": {
+        "tags": [ "interest-proposal-letter-for-applicant-v-1-controller" ],
+        "summary": "Generates the interest proposal letter for the applicant document using the provided document input data. The document is returned immediately.",
+        "operationId": "generateUsingPOST_1",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto»" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "the generated document" },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/generate/document/interest-proposal-letter-for-intermediary/v1": {
+      "post": {
+        "tags": [ "interest-proposal-letter-for-intermediary-v-1-controller" ],
+        "summary": "Generates the interest proposal letter for the intermediary document using the provided document input data. The document is returned immediately.",
+        "operationId": "generateUsingPOST_2",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto»" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "the generated document" },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/generate/document/mortgage-declaration/v2": {
+      "post": {
+        "tags": [ "mortgage-declaration-v-2-controller" ],
+        "summary": "Generates the mortgage declaration for the applicant document using the provided document input data. The document is returned immediately.",
+        "operationId": "generateUsingPOST_3",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/dto.GenerateDocumentRequest«mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto»" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "the generated declaration" },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/generate/email/privacy-statement/v1": {
+      "post": {
+        "tags": [ "privacy-statement-email-endpoint-controller" ],
+        "summary": "Sends a generic privacy statement email to the specified email address.",
+        "operationId": "sendEmailUsingPOST",
+        "consumes": [ "application/json" ],
+        "produces": [ "*/*" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/dto.EmailRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/org.springframework.http.ResponseEntity" }
+          },
+          "204": {
+            "description": "the email is send",
+            "schema": { "$ref": "#/definitions/org.springframework.http.ResponseEntity" }
+          },
+          "400": {
+            "description": "bad request",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          },
+          "500": {
+            "description": "in case of some unexpected internal error",
+            "schema": { "$ref": "#/definitions/common.exception.ErrorMessage" }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AddressIplDto": {
+      "type": "object",
+      "required": [ "cityName", "houseNumber", "postalCode", "streetName" ],
+      "properties": {
+        "cityName": {
+          "type": "string",
+          "example": "Utrecht",
+          "description": "City name"
+        },
+        "houseNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 18,
+          "description": "House number"
+        },
+        "houseNumberExtension": {
+          "type": "string",
+          "example": "bis",
+          "description": "House number extension"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "3521CB",
+          "description": "Postal code"
+        },
+        "streetName": {
+          "type": "string",
+          "example": "Croeselaan",
+          "description": "Street name"
+        }
+      },
+      "title": "AddressIplDto",
+      "description": "An AddresDto object specific for Interest Proposal Letter. An alternative name of the model is used to prevent a naming collision."
+    },
+    "AddressMdDto": {
+      "type": "object",
+      "required": [ "cityName", "houseNumber", "postalCode", "streetName" ],
+      "properties": {
+        "cityName": {
+          "type": "string",
+          "example": "Utrecht",
+          "description": "City name"
+        },
+        "houseNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 18,
+          "description": "House number"
+        },
+        "houseNumberExtension": {
+          "type": "string",
+          "example": "bis",
+          "description": "House number extension"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "3521CB",
+          "description": "Postal code"
+        },
+        "streetName": {
+          "type": "string",
+          "example": "Croeselaan",
+          "description": "Street name"
+        }
+      },
+      "title": "AddressMdDto",
+      "description": "An AddresDto object specific for Mortgage Declaration. An alternative name of the model is used to prevent a naming collision."
+    },
+    "ConsumerCreditMdDto": {
+      "type": "object",
+      "required": [ "creditLimitAmount" ],
+      "properties": {
+        "creditLimitAmount": {
+          "type": "number",
+          "example": 17777.0,
+          "description": "Credit limit amount of the consumer credit"
+        }
+      },
+      "title": "ConsumerCreditMdDto",
+      "description": "An ConsumerCreditDto object specific for Mortgage Declaration. An alternative name of the model is used to prevent a naming collision."
+    },
+    "IncomeMdDto": {
+      "type": "object",
+      "required": [ "ownPensionContributionAmount" ],
+      "properties": {
+        "ownPensionContributionAmount": {
+          "type": "number",
+          "description": "The own pension contribution amount"
+        }
+      },
+      "title": "IncomeMdDto",
+      "description": "An IncomeDto object specific for Mortgage Declaration. An alternative name of the model is used to prevent a naming collision."
+    },
+    "IncomesMdDto": {
+      "type": "object",
+      "required": [ "calendarYearIncomes", "income" ],
+      "properties": {
+        "calendarYearIncomes": {
+          "description": "The calendar year incomes",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.CalendarYearIncomesDto"
+        },
+        "income": {
+          "type": "array",
+          "description": "incomes of the applicant. At least one",
+          "items": { "$ref": "#/definitions/IncomeMdDto" }
+        }
+      },
+      "title": "IncomesMdDto",
+      "description": "An IncomesDto object specific for Mortgage Declaration. An alternative name of the model is used to prevent a naming collision."
+    },
+    "accompanyingletter.v1.dto.AccompanyingLetterDto": {
+      "type": "object",
+      "required": [ "bankCode", "documentData" ],
+      "properties": {
+        "bankCode": {
+          "type": "string",
+          "example": 1223
+        },
+        "documentData": { "$ref": "#/definitions/al.v1.AccompanyingLetter" }
+      },
+      "title": "accompanyingletter.v1.dto.AccompanyingLetterDto"
+    },
+    "afp.v1.AddressType": {
+      "type": "object",
+      "properties": {
+        "cityName": {
+          "type": "string",
+          "example": "Utrecht",
+          "xml": {
+            "name": "CityName",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "countryCode": {
+          "type": "string",
+          "example": "NL",
+          "xml": {
+            "name": "CountryCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "2 letter country code, see ISO 3166",
+          "enum": [ "AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BH", "BS", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "CI", "HR", "CU", "CW", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RE", "RO", "RU", "RW", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW" ]
+        },
+        "houseNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 8,
+          "xml": {
+            "name": "HouseNumber",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "houseNumberExtension": {
+          "type": "string",
+          "example": "C",
+          "xml": {
+            "name": "HouseNumberExtension",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "1000AA",
+          "xml": {
+            "name": "PostalCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Preferably 4 digits and 2 uppercase characters and no spaces, otherwise printed as is"
+        },
+        "streetName": {
+          "type": "string",
+          "example": "Burgemeester Baron van Voerst van Lyndenstraat",
+          "xml": {
+            "name": "StreetName",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "afp.v1.AddressType",
+      "xml": {
+        "name": "AddressType",
+        "attribute": false,
+        "wrapped": false
+      }
+    },
+    "afp.v1.ApplicantType": {
+      "type": "object",
+      "required": [ "address", "birthDate", "everDivorcedFlag", "genderCode", "maritalStatusCode", "nameInitials", "relationId", "surname" ],
+      "properties": {
+        "address": {
+          "xml": {
+            "name": "Address",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/afp.v1.AddressType"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2000-01-01",
+          "xml": {
+            "name": "BirthDate",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "emailAddress": {
+          "type": "string",
+          "example": "ab@devries.nl",
+          "xml": {
+            "name": "EmailAddress",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "everDivorcedFlag": {
+          "type": "boolean",
+          "xml": {
+            "name": "EverDivorcedFlag",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Flag indicating if the person has ever been divorced"
+        },
+        "genderCode": {
+          "type": "string",
+          "example": "MALE",
+          "xml": {
+            "name": "GenderCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "enum": [ "MALE", "FEMALE" ]
+        },
+        "maritalStatusCode": {
+          "type": "string",
+          "example": "MARRIED",
+          "xml": {
+            "name": "MaritalStatusCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "enum": [ "SINGLE", "DIVORCED", "LIVING_TOGETHER_WITHOUT_COHABITATION_AGREEMENT", "LIVING_TOGETHER_WITH_COHABITATION_AGREEMENT", "LIVING_TOGETHER_WITHOUT_PARTNER_RELATION", "MARRIED", "MARRIED_ON_EQUAL_TERMS", "MARRIED_ON_PRENUPTIAL_AGREEMENT", "CIVIL_UNION_ON_EQUAL_TERMS", "CIVIL_UNION_ON_REGISTRATIONAL_AGREEMENT", "WIDOWER" ]
+        },
+        "nameInitials": {
+          "type": "string",
+          "example": "A.B.",
+          "xml": {
+            "name": "NameInitials",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "nationalityCountryCode": {
+          "type": "string",
+          "example": "NL",
+          "xml": {
+            "name": "NationalityCountryCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "2 letter country code, see ISO 3166",
+          "enum": [ "AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BH", "BS", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "CI", "HR", "CU", "CW", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RE", "RO", "RU", "RW", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW" ]
+        },
+        "relationId": {
+          "type": "string",
+          "example": 123,
+          "xml": {
+            "name": "RelationId",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Meaningless identification of the relation"
+        },
+        "surname": {
+          "type": "string",
+          "example": "Vries",
+          "xml": {
+            "name": "Surname",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "surnamePrefix": {
+          "type": "string",
+          "example": "de",
+          "xml": {
+            "name": "SurnamePrefix",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "telephoneNumber": {
+          "type": "string",
+          "example": "+31 (0)6 1234 5789",
+          "xml": {
+            "name": "TelephoneNumber",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "afp.v1.ApplicantType",
+      "xml": {
+        "name": "ApplicantType",
+        "attribute": false,
+        "wrapped": false
+      }
+    },
+    "afp.v1.ApplicationFinancingPrivate": {
+      "type": "object",
+      "properties": {
+        "applicant": {
+          "type": "array",
+          "description": "The list of applicants. The applicants are displayed in order on the document",
+          "items": { "$ref": "#/definitions/afp.v1.ApplicantType" }
+        }
+      },
+      "title": "afp.v1.ApplicationFinancingPrivate",
+      "xml": {
+        "name": "ApplicationFinancingPrivate",
+        "attribute": false,
+        "wrapped": false
+      }
+    },
+    "al.v1.AccompanyingLetter": {
+      "type": "object",
+      "required": [ "applicant", "collateral", "mortgage", "sepaMandateTypeCode" ],
+      "properties": {
+        "applicant": {
+          "type": "array",
+          "xml": {
+            "name": "Applicant",
+            "attribute": false,
+            "wrapped": false
+          },
+          "items": { "$ref": "#/definitions/al.v1.ApplicantType" }
+        },
+        "collateral": {
+          "xml": {
+            "name": "Collateral",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.CollateralType"
+        },
+        "mortgage": {
+          "xml": {
+            "name": "Mortgage",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.MortgageType"
+        },
+        "sepaMandateTypeCode": {
+          "type": "string",
+          "example": "SEPA_DIRECT_DEBIT",
+          "xml": {
+            "name": "SepaMandateTypeCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "enum": [ "SEPA_DIRECT_DEBIT", "INTERNAL_CREDITS" ]
+        }
+      },
+      "title": "al.v1.AccompanyingLetter"
+    },
+    "al.v1.ApplicantType": {
+      "type": "object",
+      "required": [ "address", "genderCode", "nameInitial", "sequenceNumber", "surname" ],
+      "properties": {
+        "address": {
+          "xml": {
+            "name": "Address",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.ApplicantType.Address"
+        },
+        "genderCode": {
+          "type": "string",
+          "xml": {
+            "name": "GenderCode",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          },
+          "enum": [ "MALE", "FEMALE", "UNKNOWN" ]
+        },
+        "nameInitial": {
+          "type": "string",
+          "example": "A",
+          "xml": {
+            "name": "NameInitial",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "sequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "xml": {
+            "name": "SequenceNumber",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Sequence number of the mortgage request person within a mortgage application."
+        },
+        "surname": {
+          "type": "string",
+          "example": "Vries",
+          "xml": {
+            "name": "Surname",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "surnamePrefix": {
+          "type": "string",
+          "example": "de",
+          "xml": {
+            "name": "SurnamePrefix",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "al.v1.ApplicantType"
+    },
+    "al.v1.ApplicantType.Address": {
+      "type": "object",
+      "required": [ "cityName", "countryCode", "houseNumber", "postalCode", "streetName" ],
+      "properties": {
+        "cityName": {
+          "type": "string",
+          "example": "Utrecht",
+          "xml": {
+            "name": "CityName",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "countryCode": {
+          "type": "string",
+          "example": "NL",
+          "xml": {
+            "name": "CountryCode",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "houseNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 18,
+          "xml": {
+            "name": "HouseNumber",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "houseNumberExtension": {
+          "type": "string",
+          "example": "bis",
+          "xml": {
+            "name": "HouseNumberExtension",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "1000AB",
+          "xml": {
+            "name": "PostalCode",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "streetName": {
+          "type": "string",
+          "example": "Croeslaan",
+          "xml": {
+            "name": "StreetName",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "al.v1.ApplicantType.Address"
+    },
+    "al.v1.CollateralType": {
+      "type": "object",
+      "required": [ "address", "purchaseHomeConstructionChoiceTypeCode" ],
+      "properties": {
+        "address": {
+          "xml": {
+            "name": "Address",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.CollateralType.Address"
+        },
+        "construction": {
+          "xml": {
+            "name": "Construction",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.CollateralType.Construction"
+        },
+        "purchaseHomeConstructionChoiceTypeCode": {
+          "type": "string",
+          "xml": {
+            "name": "PurchaseHomeConstructionChoiceTypeCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Characterization of the manner in which the property is realized.",
+          "enum": [ "EXISTING_BUILDING", "NEW_BUILDING", "SELF_CONSTRUCTION" ]
+        }
+      },
+      "title": "al.v1.CollateralType"
+    },
+    "al.v1.CollateralType.Address": {
+      "type": "object",
+      "required": [ "cityName", "houseNumber", "streetName" ],
+      "properties": {
+        "cityName": {
+          "type": "string",
+          "example": "Utrecht",
+          "xml": {
+            "name": "CityName",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "houseNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 18,
+          "xml": {
+            "name": "HouseNumber",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "houseNumberExtension": {
+          "type": "string",
+          "example": "bis",
+          "xml": {
+            "name": "HouseNumberExtension",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "streetName": {
+          "type": "string",
+          "example": "Croeslaan",
+          "xml": {
+            "name": "StreetName",
+            "namespace": "http://financieren.rabobank.nl/kwx/dhc/generating/document/common",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "al.v1.CollateralType.Address"
+    },
+    "al.v1.CollateralType.Construction": {
+      "type": "object",
+      "required": [ "realEstateModificationCostsAmount" ],
+      "properties": {
+        "realEstateModificationCostsAmount": {
+          "type": "number",
+          "example": 36000.0,
+          "xml": {
+            "name": "RealEstateModificationCostsAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Amount that is needed to modify the real estate in euros."
+        }
+      },
+      "title": "al.v1.CollateralType.Construction"
+    },
+    "al.v1.FinancingNeeds": {
+      "type": "object",
+      "required": [ "adviceCompletionFee", "bankGuaranteeAmount", "bankGuaranteeCompletionFeeAmount", "financingArrangementCompletionFeeAmount", "incomeInsuranceCompletionFeeAmount" ],
+      "properties": {
+        "adviceCompletionFee": {
+          "type": "number",
+          "example": 1850.0,
+          "xml": {
+            "name": "AdviceCompletionFee",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Amount of advice fee in euros for a mortgage application."
+        },
+        "bankGuaranteeAmount": {
+          "type": "number",
+          "example": 790.0,
+          "xml": {
+            "name": "BankGuaranteeAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "The amount of the bank guarantee."
+        },
+        "bankGuaranteeCompletionFeeAmount": {
+          "type": "number",
+          "example": 500.0,
+          "xml": {
+            "name": "BankGuaranteeCompletionFeeAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Amount of completion fee in euros to be paid for the closing of the bank guarantee for the mortgage."
+        },
+        "financingArrangementCompletionFeeAmount": {
+          "type": "number",
+          "example": 300.0,
+          "xml": {
+            "name": "FinancingArrangementCompletionFeeAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Amount of completion fee of the financing arrangement,  including handling costs of the mortgage life insurance and income insurance and including reductions and surcharges."
+        },
+        "incomeInsuranceCompletionFeeAmount": {
+          "type": "number",
+          "example": 150.0,
+          "xml": {
+            "name": "IncomeInsuranceCompletionFeeAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Amount of completion fee in euros to be paid for the closing of the income insurance for the mortgage."
+        }
+      },
+      "title": "al.v1.FinancingNeeds"
+    },
+    "al.v1.LoanArrangementType": {
+      "type": "object",
+      "required": [ "mortgageCommercialProduct", "originalCapitalAmount" ],
+      "properties": {
+        "mortgageCommercialProduct": {
+          "type": "string",
+          "xml": {
+            "name": "MortgageCommercialProduct",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "originalCapitalAmount": {
+          "type": "number",
+          "example": 234000.0,
+          "xml": {
+            "name": "OriginalCapitalAmount",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "The original capital amount of a loan arrangement, in euros."
+        }
+      },
+      "title": "al.v1.LoanArrangementType"
+    },
+    "al.v1.MortgageRequestType": {
+      "type": "object",
+      "required": [ "id", "startDateTime" ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": 81,
+          "xml": {
+            "name": "Id",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "Meaningless identification of a mortgage request."
+        },
+        "startDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2019-06-27T09:45:22.399+02:00",
+          "xml": {
+            "name": "StartDateTime",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "al.v1.MortgageRequestType"
+    },
+    "al.v1.MortgageType": {
+      "type": "object",
+      "required": [ "closingAcceptanceDate", "financingNeeds", "generalConditionsTypeCode", "loanArrangement", "request" ],
+      "properties": {
+        "closingAcceptanceDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2019-06-27",
+          "xml": {
+            "name": "ClosingAcceptanceDate",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "The last date by which the financing offer can be accepted."
+        },
+        "financingNeeds": {
+          "xml": {
+            "name": "FinancingNeeds",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.FinancingNeeds"
+        },
+        "generalConditionsTypeCode": {
+          "type": "string",
+          "example": "BASIS",
+          "xml": {
+            "name": "GeneralConditionsTypeCode",
+            "attribute": false,
+            "wrapped": false
+          },
+          "description": "The general conditions that hold for a loan arrangement.",
+          "enum": [ "BASIS", "PLUS" ]
+        },
+        "loanArrangement": {
+          "type": "array",
+          "xml": {
+            "name": "LoanArrangement",
+            "attribute": false,
+            "wrapped": false
+          },
+          "items": { "$ref": "#/definitions/al.v1.LoanArrangementType" }
+        },
+        "request": {
+          "xml": {
+            "name": "Request",
+            "attribute": false,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/al.v1.MortgageRequestType"
+        }
+      },
+      "title": "al.v1.MortgageType"
+    },
+    "common.exception.ErrorMessage": {
+      "type": "object",
+      "required": [ "message" ],
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The message"
+        }
+      },
+      "title": "common.exception.ErrorMessage"
+    },
+    "dto.EmailRequest": {
+      "type": "object",
+      "required": [ "toEmailAddress" ],
+      "properties": {
+        "emailData": {
+          "type": "object",
+          "description": "The email data used to generate the email content"
+        },
+        "fromEmailAddress": {
+          "type": "string",
+          "example": "no-reply@rabobank.nl",
+          "description": "The email address of the sender"
+        },
+        "replyToEmailAddress": {
+          "type": "string",
+          "example": "no-reply@rabobank.nl",
+          "description": "The reply to email address"
+        },
+        "subject": {
+          "type": "string",
+          "example": "privacy statement",
+          "description": "The subject of the email"
+        },
+        "toEmailAddress": {
+          "type": "string",
+          "example": "test@rabobank.nl",
+          "description": "The email address of the recipient"
+        }
+      },
+      "title": "dto.EmailRequest"
+    },
+    "dto.GenerateDocumentRequest«afp.v1.ApplicationFinancingPrivate»": {
+      "type": "object",
+      "required": [ "documentData" ],
+      "properties": {
+        "documentData": {
+          "description": "The document input data.",
+          "$ref": "#/definitions/afp.v1.ApplicationFinancingPrivate"
+        }
+      },
+      "title": "dto.GenerateDocumentRequest«afp.v1.ApplicationFinancingPrivate»"
+    },
+    "dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto»": {
+      "type": "object",
+      "required": [ "documentData" ],
+      "properties": {
+        "documentData": {
+          "description": "The document input data.",
+          "$ref": "#/definitions/interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto"
+        }
+      },
+      "title": "dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto»"
+    },
+    "dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto»": {
+      "type": "object",
+      "required": [ "documentData" ],
+      "properties": {
+        "documentData": {
+          "description": "The document input data.",
+          "$ref": "#/definitions/interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto"
+        }
+      },
+      "title": "dto.GenerateDocumentRequest«interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto»"
+    },
+    "dto.GenerateDocumentRequest«mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto»": {
+      "type": "object",
+      "required": [ "documentData" ],
+      "properties": {
+        "documentData": {
+          "description": "The document input data.",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto"
+        }
+      },
+      "title": "dto.GenerateDocumentRequest«mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto»"
+    },
+    "interestproposalletter.v1.dto.ApplicantDto": {
+      "type": "object",
+      "required": [ "correspondenceAddress", "genderCode", "nameInitial", "surname" ],
+      "properties": {
+        "correspondenceAddress": {
+          "description": "Applicant correspondence address",
+          "$ref": "#/definitions/AddressIplDto"
+        },
+        "genderCode": {
+          "type": "string",
+          "example": "MALE",
+          "description": "Applicant gender",
+          "enum": [ "MALE", "FEMALE" ]
+        },
+        "nameInitial": {
+          "type": "string",
+          "example": "A.B.",
+          "description": "Applicant initials"
+        },
+        "surname": {
+          "type": "string",
+          "example": "Vries",
+          "description": "Applicant surname"
+        },
+        "surnamePrefix": {
+          "type": "string",
+          "example": "de",
+          "description": "Applicant surname prefix"
+        }
+      },
+      "title": "interestproposalletter.v1.dto.ApplicantDto"
+    },
+    "interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto": {
+      "type": "object",
+      "required": [ "applicants", "bankCode", "expectedDocuments", "intermediary", "loanArrangements", "loanToValuePercentage", "loanToValueSurchargePercentage", "loyaltyDiscountFlag", "nhgFlag", "proposalDate", "proposalExpirationDate" ],
+      "properties": {
+        "applicants": {
+          "type": "array",
+          "description": "Applicants of the interest proposal. At least one, max two.",
+          "items": { "$ref": "#/definitions/interestproposalletter.v1.dto.ApplicantDto" }
+        },
+        "bankCode": {
+          "type": "string",
+          "example": 1223,
+          "description": "Code of the bank making the request"
+        },
+        "expectedDocuments": {
+          "type": "array",
+          "example": [ "Recente salarisstrook", "Pensioenoverzicht" ],
+          "description": "List of documents that must be provided by the applicant. The items in the list will be included in the document as provided here",
+          "items": { "type": "string" }
+        },
+        "intermediary": {
+          "description": "The intermediary",
+          "$ref": "#/definitions/interestproposalletter.v1.dto.IntermediaryDto"
+        },
+        "loanArrangements": {
+          "type": "array",
+          "description": "At least one loan arrangement",
+          "items": { "$ref": "#/definitions/interestproposalletter.v1.dto.LoanArrangementDto" }
+        },
+        "loanToValuePercentage": {
+          "type": "number",
+          "format": "double",
+          "example": 85.0,
+          "description": "Loan to value percentage"
+        },
+        "loanToValueSurchargePercentage": {
+          "type": "number",
+          "format": "double",
+          "example": 1.8,
+          "description": "Loan to value surcharge percentage"
+        },
+        "loyaltyDiscountFlag": {
+          "type": "boolean",
+          "example": true,
+          "description": "Flag to indicate if loyalty discount applies or not"
+        },
+        "nhgFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "Flag to indicate if NHG applies or not"
+        },
+        "proposalDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Proposal date of the interest proposal letter"
+        },
+        "proposalExpirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiration date of this proposal"
+        }
+      },
+      "title": "interestproposalletter.v1.dto.InterestProposalLetterForApplicantDocumentDataDto"
+    },
+    "interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto": {
+      "type": "object",
+      "required": [ "applicants", "bankCode", "intermediary", "proposalDate", "proposalExpirationDate" ],
+      "properties": {
+        "applicants": {
+          "type": "array",
+          "description": "Applicants of the interest proposal. At least one, max two.",
+          "items": { "$ref": "#/definitions/interestproposalletter.v1.dto.ApplicantDto" }
+        },
+        "bankCode": {
+          "type": "string",
+          "example": 1223,
+          "description": "Code of the bank making the request"
+        },
+        "intermediary": {
+          "description": "The intermediary",
+          "$ref": "#/definitions/interestproposalletter.v1.dto.IntermediaryDto"
+        },
+        "proposalDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Proposal date of the interest proposal letter"
+        },
+        "proposalExpirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiration date of this proposal"
+        }
+      },
+      "title": "interestproposalletter.v1.dto.InterestProposalLetterForIntermediaryDocumentDataDto"
+    },
+    "interestproposalletter.v1.dto.IntermediaryDto": {
+      "type": "object",
+      "required": [ "commercialName", "correspondenceAddress" ],
+      "properties": {
+        "commercialName": {
+          "type": "string",
+          "example": "Tussenpersoon B.V.",
+          "description": "Intermediary commercial name"
+        },
+        "correspondenceAddress": {
+          "description": "Intermediary correspondence address",
+          "$ref": "#/definitions/AddressIplDto"
+        }
+      },
+      "title": "interestproposalletter.v1.dto.IntermediaryDto"
+    },
+    "interestproposalletter.v1.dto.LoanArrangementDto": {
+      "type": "object",
+      "required": [ "commercialProductTypeCode", "customerInterestRatePercentage", "interestTermNumberOfYears", "originalCapitalAmount" ],
+      "properties": {
+        "commercialProductTypeCode": {
+          "type": "string",
+          "example": "ANNUITEITEN_HYPOTHEEK_BASIS",
+          "description": "The commercial product type",
+          "enum": [ "ANNUITEITEN_HYPOTHEEK_BASIS", "ANNUITEITEN_HYPOTHEEK_PLUS", "LINEAIRE_HYPOTHEEK_BASIS", "LINEAIRE_HYPOTHEEK_PLUS" ]
+        },
+        "customerInterestRatePercentage": {
+          "type": "number",
+          "format": "double",
+          "example": 1.9,
+          "description": "The interest rate percentage of this loan arrangement"
+        },
+        "interestTermNumberOfYears": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "The interest term in years"
+        },
+        "originalCapitalAmount": {
+          "type": "integer",
+          "format": "int32",
+          "example": 250000,
+          "description": "The capital amount of this loan arrangement"
+        }
+      },
+      "title": "interestproposalletter.v1.dto.LoanArrangementDto"
+    },
+    "mortgagedeclaration.v2.dto.AlimonyDto": {
+      "type": "object",
+      "required": [ "periodicalAmount" ],
+      "properties": {
+        "periodicalAmount": {
+          "type": "number",
+          "example": 400.0,
+          "description": "Monthly amount of the alimony"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.AlimonyDto"
+    },
+    "mortgagedeclaration.v2.dto.ApplicantDto": {
+      "type": "object",
+      "required": [ "correspondenceAddress", "genderCode", "incomes", "nameInitial", "nonMortgageObligations", "surname" ],
+      "properties": {
+        "correspondenceAddress": {
+          "description": "Applicant correspondence address",
+          "$ref": "#/definitions/AddressMdDto"
+        },
+        "genderCode": {
+          "type": "string",
+          "example": "MALE",
+          "description": "Applicant gender",
+          "enum": [ "MALE", "FEMALE" ]
+        },
+        "incomes": {
+          "description": "Applicant incomes",
+          "$ref": "#/definitions/IncomesMdDto"
+        },
+        "nameInitial": {
+          "type": "string",
+          "example": "A.B.",
+          "description": "Applicant initials"
+        },
+        "nonMortgageObligations": {
+          "description": "Applicant Non mortage obligations",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.NonMortgageObligationsDto"
+        },
+        "surname": {
+          "type": "string",
+          "example": "Vries",
+          "description": "Applicant surname"
+        },
+        "surnamePrefix": {
+          "type": "string",
+          "example": "de",
+          "description": "Applicant surname prefix"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.ApplicantDto"
+    },
+    "mortgagedeclaration.v2.dto.CalendarYearIncomesDto": {
+      "type": "object",
+      "required": [ "checkIncomeYearAmount" ],
+      "properties": {
+        "checkIncomeYearAmount": {
+          "type": "number",
+          "example": 82000.0,
+          "description": "check income year amount of incomes"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.CalendarYearIncomesDto"
+    },
+    "mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto": {
+      "type": "object",
+      "required": [ "applicants", "bankCode", "customerCheckInterestRatePercentage", "customerNhgInterestRatePercentage", "declarationDate", "expirationDate", "maximumBaseLoanBasedOnIncomeAmount" ],
+      "properties": {
+        "applicants": {
+          "type": "array",
+          "description": "Applicants of the mortgage declaration.",
+          "items": { "$ref": "#/definitions/mortgagedeclaration.v2.dto.ApplicantDto" }
+        },
+        "bankCode": {
+          "type": "string",
+          "example": 1378,
+          "description": "Code of the bank making the request"
+        },
+        "customerCheckInterestRatePercentage": {
+          "type": "number",
+          "example": 1.84,
+          "description": "interest rate based on check"
+        },
+        "customerNhgInterestRatePercentage": {
+          "type": "number",
+          "example": 2.84,
+          "description": "interest rate based on nhg"
+        },
+        "declarationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Declaration date of this declaration"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiration date of this declaration"
+        },
+        "maximumBaseLoanBasedOnIncomeAmount": {
+          "type": "number",
+          "example": 285000.0,
+          "description": "maximum base loan based on income amount of this declaration"
+        },
+        "nonMortgageObligations": {
+          "description": "Non mortage obligations shared by all applicants in this declaration.",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.NonMortgageObligationsDto"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.MortgageDeclarationDocumentDataDto"
+    },
+    "mortgagedeclaration.v2.dto.NonMortgageObligationsDto": {
+      "type": "object",
+      "properties": {
+        "alimony": {
+          "description": "The alimony",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.AlimonyDto"
+        },
+        "consumerCredit": {
+          "description": "The consumer credit",
+          "$ref": "#/definitions/ConsumerCreditMdDto"
+        },
+        "studentLoan": {
+          "description": "The student loan",
+          "$ref": "#/definitions/mortgagedeclaration.v2.dto.StudentLoanDto"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.NonMortgageObligationsDto"
+    },
+    "mortgagedeclaration.v2.dto.StudentLoanDto": {
+      "type": "object",
+      "required": [ "originalCapitalAmount" ],
+      "properties": {
+        "originalCapitalAmount": {
+          "type": "number",
+          "example": 19999.0,
+          "description": "Student loan amount"
+        }
+      },
+      "title": "mortgagedeclaration.v2.dto.StudentLoanDto"
+    },
+    "org.springframework.http.ResponseEntity": {
+      "type": "object",
+      "properties": {
+        "body": { "type": "object" },
+        "statusCode": {
+          "type": "string",
+          "enum": [ "100 CONTINUE", "101 SWITCHING_PROTOCOLS", "102 PROCESSING", "103 CHECKPOINT", "200 OK", "201 CREATED", "202 ACCEPTED", "203 NON_AUTHORITATIVE_INFORMATION", "204 NO_CONTENT", "205 RESET_CONTENT", "206 PARTIAL_CONTENT", "207 MULTI_STATUS", "208 ALREADY_REPORTED", "226 IM_USED", "300 MULTIPLE_CHOICES", "301 MOVED_PERMANENTLY", "302 FOUND", "302 MOVED_TEMPORARILY", "303 SEE_OTHER", "304 NOT_MODIFIED", "305 USE_PROXY", "307 TEMPORARY_REDIRECT", "308 PERMANENT_REDIRECT", "400 BAD_REQUEST", "401 UNAUTHORIZED", "402 PAYMENT_REQUIRED", "403 FORBIDDEN", "404 NOT_FOUND", "405 METHOD_NOT_ALLOWED", "406 NOT_ACCEPTABLE", "407 PROXY_AUTHENTICATION_REQUIRED", "408 REQUEST_TIMEOUT", "409 CONFLICT", "410 GONE", "411 LENGTH_REQUIRED", "412 PRECONDITION_FAILED", "413 PAYLOAD_TOO_LARGE", "413 REQUEST_ENTITY_TOO_LARGE", "414 URI_TOO_LONG", "414 REQUEST_URI_TOO_LONG", "415 UNSUPPORTED_MEDIA_TYPE", "416 REQUESTED_RANGE_NOT_SATISFIABLE", "417 EXPECTATION_FAILED", "418 I_AM_A_TEAPOT", "419 INSUFFICIENT_SPACE_ON_RESOURCE", "420 METHOD_FAILURE", "421 DESTINATION_LOCKED", "422 UNPROCESSABLE_ENTITY", "423 LOCKED", "424 FAILED_DEPENDENCY", "426 UPGRADE_REQUIRED", "428 PRECONDITION_REQUIRED", "429 TOO_MANY_REQUESTS", "431 REQUEST_HEADER_FIELDS_TOO_LARGE", "451 UNAVAILABLE_FOR_LEGAL_REASONS", "500 INTERNAL_SERVER_ERROR", "501 NOT_IMPLEMENTED", "502 BAD_GATEWAY", "503 SERVICE_UNAVAILABLE", "504 GATEWAY_TIMEOUT", "505 HTTP_VERSION_NOT_SUPPORTED", "506 VARIANT_ALSO_NEGOTIATES", "507 INSUFFICIENT_STORAGE", "508 LOOP_DETECTED", "509 BANDWIDTH_LIMIT_EXCEEDED", "510 NOT_EXTENDED", "511 NETWORK_AUTHENTICATION_REQUIRED" ]
+        },
+        "statusCodeValue": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "org.springframework.http.ResponseEntity"
+    }
+  }
+}
